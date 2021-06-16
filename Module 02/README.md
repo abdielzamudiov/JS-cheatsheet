@@ -1,0 +1,13 @@
+### Module 02:
+- #### Creating an array
+- #### Creating an object
+- #### Array methods
+- #### Sorting arrays
+- #### Object methods
+- #### Object to primitive conversion
+- #### Object property flags and descriptors
+- #### Object static methods
+- #### Looping through object values
+- #### Getters and Setters
+- #### Deleting object properties
+- #### Comparing objects
