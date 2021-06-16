@@ -39,17 +39,62 @@
 	```
 	4. Expresions: an expression is a combination of values, variables, and operators, which computes to a value.
 	```
-	//Computes (Evaluate) to 50
-	5 * 10
+		//Computes (Evaluate) to 50
+		5 * 10
 	
-	//Expressions can also contain variables
-	x * 5
+		//Expressions can also contain variables
+		x * 5
 	
-	//The values can be of various types, numbers and strings
-	"John" + " " + "Doe"
+		//The values can be of various types, numbers and strings
+		"John" + " " + "Doe"
 	```
+	5. Keywords: Keywords are reserved words in JavaScript that you cannot use to indicate variable labels or function names. There are a total of 63 keywords that JavaScript provides to programmers. 
 - #### Loops, switch case
 	1. Loops: 
+		- ```for``` statement: repeats until a specified condition evaluates to ```false```
+		```
+		//					     |	specified condition	 |
+		//                       |   if this is true     |  
+		for ([initialExpression]; [conditionExpression]; [incrementExpression]) {
+			// do this
+			statement	
+		}
+		
+		// Example
+		for (let i = 0; i < selectObject.options.length; i++) {
+    		if (selectObject.options[i].selected) {	
+				numberSelected++;
+    		}
+		}
+		
+		```
+		- ```do...while``` statement: repeats until a specified condition evaluates to false
+		```
+		do
+			statement //this always excecuted ONCE before evaluate condition
+		while (condition); // if condition is true, the statement executes again
+		
+		// Example
+		let i = 0;
+		do {
+			i += 1;
+			console.log(i);
+		} while (i < 5);
+		``` 
+		- ```while``` statement: executes its statements as long as a specified condition evaluates to true
+		```
+		while (condition) // The condition test occurs before statement
+			statement
+			
+		// Example: The following while loop iterates as long as n is less than 3:
+		let n = 0;
+		let x = 0;
+		while (n < 3) {
+			n++;
+			x += n;
+		}
+		```
+		- 
 - #### Alert, console
 - #### Variables
 - #### Data types, typeof
