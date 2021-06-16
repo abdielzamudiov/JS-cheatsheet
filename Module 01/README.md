@@ -53,7 +53,7 @@
 	1. Loops: 
 		- ```for``` statement: repeats until a specified condition evaluates to ```false```
 		```
-		//					     |	specified condition	 |
+		//                       |	specified condition	 |
 		//                       |   if this is true     |  
 		for ([initialExpression]; [conditionExpression]; [incrementExpression]) {
 			// do this
