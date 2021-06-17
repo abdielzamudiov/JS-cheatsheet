@@ -171,9 +171,72 @@
 	console.log("here goes whatever you wanna log in the console");
 	```
 - #### Variables
-	
+	In JS we use ```var``` or ```let``` keyword to declare variables.
+	```
+	let x;
+	var y;
+	```
+	We use the assignment operator ```=``` to assign a value to a variable.
+	```
+	let x = 6;
+	```
+	If you use a variable without initializing it, it will have an ```undefined``` value.
+	Rules: 
+	1. Variables must start with either alleter, an underscore ```_```or the ```$``` sign.
+	2. Variable names cannot start with numbers.
+	3. JS is case-sensitive. So ```x``` and ```X``` are different variables.
+	4. Keywords cannot be used as variable names.
+	**JS Constans**:
+	The ```const``` keyword was introduced in the ES6(ES2015) version to create constants. As a constant his value can't be reasigned, and must be initializated when declarated.
+	```
+	const x = 5; //initialize when declaration, otherwise will throw error
+	```
 - #### Data types, typeof
+	-```String``` : represents textual data
+	```
+	"hello"
+	'hello world'
+	```
+	- ```Number```: an integer or a floating number. Represents numeber less than (2^53 -1) and more dan -(2^53 -1)
+	```
+	3
+	3.1416
+	3e-2
+	+Infinity
+	-Infinity
+	NaN
+	```
+	- ```BigInt```: an integer with arbitrary precision. Is created by appending n to the end of an integer. Can store a larger number tan ```Number```. BigInt and Number cannot be added.
+	```
+	const value = 900719925124740999n
+	const result2 = value + 1 ///this will throw error
+	
+	```
+	- ```Boolean```: Any of two values: ```true``` or ```false```
+	- ```undefined```: a data type whose variable is not initialized. It can also be explicitly assigned, but is recommended to assign null instead of undefined to an unknown or empty variable.
+	- ```null```: denotes a ```null``` value.
+	- ```Symbol```:  data type whose instances are unique and inmutable. 
+	```
+	let value1 = Symbol('hello');
+	let value2 = Symbol('hello');
+	value1 === value2 //this evaluate to false 
+	```
+	- ```Object```: key-value pairs of collection of data.
+	```
+	let student = {
+		firstName: "Juan",
+		lastName: null,
+		class: 10
+	};
+	```
+	**typeof**
+	To find the type of a variable, you can use the ```typeof``` operator.
+	```
+	const name = "ram";
+	typeof(name); // returns "string"
+	```
 - #### Functions: basics
+
 - #### Returning value from a function
 - #### Types convertions
 - #### Comparisons
