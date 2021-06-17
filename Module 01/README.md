@@ -159,7 +159,19 @@
 		}
 		```
 - #### Alert, console
+	1. Alert: The alert() method displays an alert box with a specified message and an OK button.
+
+		An alert box is often used if you want to make sure information comes through to the user.
+	```
+	alert(message) // only parameter is message, it is of string type
+	```
+		
+	2. Console: is an object that provides access to the browser's debugging console, it has a lot of [methods](https://developer.mozilla.org/en-US/docs/Web/API/console#methods). Most used methods are [```console.log()```](https://developer.mozilla.org/en-US/docs/Web/API/Console/log), [```console.info()```](https://developer.mozilla.org/en-US/docs/Web/API/Console/info), [```console.warn()```](https://developer.mozilla.org/en-US/docs/Web/API/Console/warn), [```console.error()```](https://developer.mozilla.org/en-US/docs/Web/API/Console/error)
+	```
+	console.log("here goes whatever you wanna log in the console");
+	```
 - #### Variables
+	
 - #### Data types, typeof
 - #### Functions: basics
 - #### Returning value from a function
