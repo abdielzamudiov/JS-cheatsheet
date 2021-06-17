@@ -236,7 +236,29 @@
 	typeof(name); // returns "string"
 	```
 - #### Functions: basics
-
+	- Declaring a function:
+		- A function is declared using the function keyword.
+		- Naming a function is similar to name a variable. You should write descriptive names for your functions.
+		- The body of the function is written within ```{}```
+	```
+	function nameOfFunction () {
+    	// function body   
+	}
+	```
+	- Calling a Function: we can call a function by writing the name followed by parentheses.
+	```
+	function hello(){
+		console.log("hello")
+	}
+	hello() // calling the function hello
+	```
+	- Functions Parameters: a function can also be declared with parameters. A parameter is a value that is passed when declaring a function.
+	```
+	function hello(parameter){
+		console.log(parameter) 
+	}
+	hello("hello world") // calling the function hello
+	```
 - #### Returning value from a function
 - #### Types convertions
 - #### Comparisons
