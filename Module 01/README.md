@@ -340,8 +340,64 @@ There are two types of type conversion in JS:
 		// expected output: "$10.00"
 		```
 - #### Objects: basics
+	An object is a collection of properties, and a property is an association between a name (or key) and a value.
+	 The properties of an object define the characteristics of the object. You access the properties of an object with a simple dot-notation:
+	 ```
+	 // creating with the new keyword
+	 const coolCharacter = new Object({name : "Mia"});
+	 
+	 // or creating by using an object initializer
+	 const coolCharacter = {
+	 	name: "Mia",
+	 }
+	 
+	 console.log(coolCharacter); // {name: "Mia"}
+	 coolCharacter.lastName = "Wallace";
+	 coolChatacter["hobbies"] = "Dancing";
+	 console.log(coolCharacter); // {name: "Mia", lastName: "Wallace", hobbies: "Dancing"}
+	 console.log(coolCharacter.lastName); // "Dancing"
+	 ```
+	- Iterating: you can iterate with a ```for...in``` statement
+	- ```Object.keys(obj)```: returns an array with all the own enumerable properties names ("keys") of an object
 - #### Array: basics
+	The JavaScript Array class is a global object that is used in the construction of arrays; which are high-level, list-like objects.
+	```
+	// Create an array
+	const fruits = ["Apple", "Banana"]
+	console.log(fruits.length)	// note that length is a property, not a method
+	```
+	- Iterating: you can do it with a simple ```for ``` statement, or with a ```for...of```, or with the protoptype method ```forEach()```:
+	```
+	for (let i = 0; i < 10; i++)
+		console.log(arr[i])
+		
+	for (let item of arr)
+		consol.log(item)
+		
+	arr.forEach((item,index) => {
+		console.log(item, index)
+	});
+	
+	```
+	- Add item at the end of the array with the ```push()``` method
+	```
+	let newfruits = fruits.push('Orange'); // push method add new element and returns the new length of the array
+	```
+	- Remove the last item from the array with the ```pop()``` method
+	```
+	let last = fruits.pop() //returns the element that just removed
+	```
+	-  See more [Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#instance_methods)
 - #### setTimeout, setInterval
+	- setTimeout
+		El método setTimeout() del mixin WindowOrWorkerGlobalScope establece un temporizador que ejecuta una función o una porción de código después de que transcurre un tiempo establecido.
+		```
+		var timeoutID = scope.setTimeout(function[, delay, arg1, arg2, ...]);
+		```
+		- ```function``` a function to be excetuted after the timer expires.
+		-```delay``` the time in miliseconds that the timer should wait before the specified function os executed.
+		-```arg1, ..., argN``` this are optional, this arguments are passed through to the function specified by function.
 - #### Date and time
+
 - #### Math
 - #### Window
