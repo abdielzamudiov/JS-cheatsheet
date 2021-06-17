@@ -371,7 +371,6 @@ We can return values from a function when we use the ```return``` statement, thi
 		arr.forEach((item,index) => {
 			console.log(item, index)
 		});
-	
 	```
 	- Add item at the end of the array with the ```push()``` method
 	```js
@@ -411,13 +410,13 @@ We can return values from a function when we use the ```return``` statement, thi
 			console.log(timeNow); // shows current date and time
 		```
 		Output
-		```js
+		```
 			Mon Jul 06 2020 12:03:49 GMT+0545 (Nepal Time)
 		```
 	2. ```new Date(miliseconds)```: the date object contains a number that represents milliseconds since 1 January 1970 UTC. Creates a new date object by adding the milliseconds to the zero time. For example:
 		```js
-		const time1 = new Date(0);
-		console.log(time1); // 1970-01-01T00:00:00.000Z on nodejs
+			const time1 = new Date(0);
+			console.log(time1); // 1970-01-01T00:00:00.000Z on nodejs
 		```
 	3. ```new Date(Date string)```: creates a new date object from a date string
 		In JavaScript, there are generally three date input formats.
