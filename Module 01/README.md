@@ -454,4 +454,7 @@ We can return values from a function when we use the ```return``` statement, thi
 	_Note_: Many Math functions have a precision that’s implementation-dependent.
 	This means that different browsers can give a different result. Even the same JavaScript engine on a different OS or architecture can give different results!
 - #### Window
+The Window interface represents a window containing a DOM document; the document property points to the DOM document loaded in that window. A window for a given document can be obtained using the document.defaultView property.
+A global variable, window, representing the window in which the script is running, is exposed to JavaScript code.
+It has a lot of useful methods, properties and constructors. Check them out here [Window](https://developer.mozilla.org/en-US/docs/Web/API/Window)
 	
