@@ -260,7 +260,57 @@
 	hello("hello world") // calling the function hello
 	```
 - #### Returning value from a function
+We can return values from a function when we use the ```return``` statement, this statement denotates that the function has ended. Any code after ```return``` is not executed.
+```
+function add(a, b) {
+    return a + b;
+}
+console.log(add(3,6)) // this will log 9
+```
 - #### Types convertions
+There are two types of type conversion in JS:
+	1. Implicit Conversion: automatic type conversion.
+	```
+	// Implicit conversion to string using + operator
+	let result = "3" + 2; //result "32"
+	result = '3' + true; // result "3true"
+	result = '3' + undefined; // result 3undefined
+	result = '3' + null; // result 3null
+	
+	//Implicit conversion to number with - , / , * operators
+	result = '4' - '2'; // result 2
+	result = '4' - 2; // result 2
+	result = '4' * 2; // results 8
+	result = '4' / 2; // results 2
+	
+	// If we use those operators on non numerical values we get NaN as result
+	result = 'hello' - 'world'; // results NaN
+	
+	// Boolean conversion to number true = 1, false = 0
+	result = '4' - true; // 3
+	result = '4' + true; // 5
+	result = '4' + false; // 4
+	```
+	2. Explicit Conversion: manual type conversion.
+	```
+	// Convert to Number
+	result = Number('324') // 324 
+	// Empty strings and null values return 0
+	result = Number(' ') // 0
+	// If is an invalid number it will return NaN
+	result = Number("hello") // NaN
+	
+	//Convert to String
+	result = String(324) // "324", this way can turn undefined and null values
+	result = (324).toString() // "324" while this way will trhow error when converting undefined or null
+	
+	//Convert to Boolean
+	// undefined, null, 0, "", converts to false
+	result = Boolean("") // false
+	//All other values give true
+	result = Boolean("Hello") //true
+	```
+	
 - #### Comparisons
 - #### Operators: Logical, Conditional
 - #### Objects: basics
