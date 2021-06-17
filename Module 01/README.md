@@ -50,7 +50,7 @@
 	```
 	5. Keywords: Keywords are reserved words in JavaScript that you cannot use to indicate variable labels or function names. There are a total of 63 keywords that JavaScript provides to programmers. 
 - #### Loops, switch case
-	1. Loops: 
+	1. Loops: eoeoeeoeo
 		- ```for``` statement: repeats until a specified condition evaluates to ```false```
 		```
 		//                       |	specified condition	 |
