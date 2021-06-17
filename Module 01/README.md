@@ -312,7 +312,33 @@ There are two types of type conversion in JS:
 	```
 	
 - #### Comparisons
+	Comparitionso operators compare two calues and give back a boolean value: either ```true``` or  ```false```
+	- ```==```: Equal to, true if the operands are equal.
+	- ```!=``` Not equal to; true if operands are nos equal.
+	- ```===``` Strict equal to; true if the operands are equal and of the same type.
+	- ```!==``` Strict not equal to; true if operands are equal but of different type or not equal at all.
+	- ```>``` Greater than; true if the left operand is greater than the rigth operand.
+	- ```>=``` Greater or equal to; true if the left operand is greater than or equal to the right operand.
+	- ```<``` Less than; true if the left operand is less than the right operand.
+	- ```<=``` Less than or equal to; true if the left operand is less than or equal to the right operand.
 - #### Operators: Logical, Conditional
+	1. Logical operators perform logical operations: AND, OR and NOT.
+		- ```&&``` Logical AND
+		- ```||``` Logical OR
+		- ```!``` Logical NOT
+	2. Conditional operator.
+		- Ternary operator: is the only JS operator that takes three operands; a condition followed by a question mark (```?```), then an expression to execute if the condition is truthly. Followed by a colon (```:```), and finally the expression to execute if the condition is falsy. This is frequently used as a shortcut for the if statement.
+		```
+		function getFee(isMember) {
+			return (isMember ? '$2.00' : '$10.00');
+		}
+		console.log(getFee(true));
+		// expected output: "$2.00"
+		console.log(getFee(false));
+		// expected output: "$10.00"
+		console.log(getFee(null));
+		// expected output: "$10.00"
+		```
 - #### Objects: basics
 - #### Array: basics
 - #### setTimeout, setInterval
