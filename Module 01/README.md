@@ -1,5 +1,5 @@
 ## Module 01:
-- #### How to run JS
+- ### How to run JS
 	1. Command line: with nodejs
 	```js
 		node index.js
@@ -13,7 +13,7 @@
 		</html>
 	```
 	3. From the Browser console: ```ctrl+shift+J```
-- #### JS syntax
+- ### JS syntax
 	1. Variable Asignment:
 	```js
 		//Variable asignment
@@ -49,7 +49,7 @@
 		"John" + " " + "Doe"
 	```
 	5. Keywords: Keywords are reserved words in JavaScript that you cannot use to indicate variable labels or function names. There are a total of 63 keywords that JavaScript provides to programmers. 
-- #### Loops, switch case
+- ### Loops, switch case
 	1. Loops: 
 		- ```for``` statement: repeats until a specified condition evaluates to ```false```
 		```js
@@ -156,7 +156,7 @@
 				console.log(i); //logs 3, 5, 7
 			}
 		```
-- #### Alert, console
+- ### Alert, console
 	1. Alert: The alert() method displays an alert box with a specified message and an OK button.
 
 		An alert box is often used if you want to make sure information comes through to the user.
@@ -168,7 +168,7 @@
 	```js
 		console.log("here goes whatever you wanna log in the console");
 	```
-- #### Variables
+- ### Variables
 	In JS we use ```var``` or ```let``` keyword to declare variables.
 	```js
 		let x;
@@ -189,7 +189,7 @@
 	```js
 		const x = 5; //initialize when declaration, otherwise will throw error
 	```
-- #### Data types, typeof
+- ### Data types, typeof
 	-```String``` : represents textual data
 	```js
 		"hello"
@@ -233,7 +233,7 @@
 		const name = "ram";
 		typeof(name); // returns "string"
 	```
-- #### Functions: basics
+- ### Functions: basics
 	- Declaring a function:
 		- A function is declared using the function keyword.
 		- Naming a function is similar to name a variable. You should write descriptive names for your functions.
@@ -257,7 +257,7 @@
 		}
 		hello("hello world") // calling the function hello
 	```
-- #### Returning value from a function
+- ### Returning value from a function
 We can return values from a function when we use the ```return``` statement, this statement denotates that the function has ended. Any code after ```return``` is not executed.
 ```js
 	function add(a, b) {
@@ -265,7 +265,7 @@ We can return values from a function when we use the ```return``` statement, thi
 	}
 	console.log(add(3,6)) // this will log 9
 ```
-- #### Types convertions
+- ### Types convertions
 	There are two types of type conversion in JS: 
 	1. Implicit Conversion: automatic type conversion.
 	```js
@@ -305,7 +305,7 @@ We can return values from a function when we use the ```return``` statement, thi
 		//All other values give true
 		result = Boolean("Hello") //true
 	```
-- #### Comparisons
+- ### Comparisons
 	Comparitionso operators compare two calues and give back a boolean value: either ```true``` or  ```false```
 	- ```==```: Equal to, true if the operands are equal.
 	- ```!=``` Not equal to; true if operands are nos equal.
@@ -315,7 +315,7 @@ We can return values from a function when we use the ```return``` statement, thi
 	- ```>=``` Greater or equal to; true if the left operand is greater than or equal to the right operand.
 	- ```<``` Less than; true if the left operand is less than the right operand.
 	- ```<=``` Less than or equal to; true if the left operand is less than or equal to the right operand.
-- #### Operators: Logical, Conditional
+- ### Operators: Logical, Conditional
 	1. Logical operators perform logical operations: AND, OR and NOT.
 		- ```&&``` Logical AND
 		- ```||``` Logical OR
@@ -333,7 +333,7 @@ We can return values from a function when we use the ```return``` statement, thi
 			console.log(getFee(null));
 			// expected output: "$10.00"
 		```
-- #### Objects: basics
+- ### Objects: basics
 	An object is a collection of properties, and a property is an association between a name (or key) and a value.
 	 The properties of an object define the characteristics of the object. You access the properties of an object with a simple dot-notation:
 	 ```js
@@ -353,7 +353,7 @@ We can return values from a function when we use the ```return``` statement, thi
 	 ```
 	- Iterating: you can iterate with a ```for...in``` statement
 	- ```Object.keys(obj)```: returns an array with all the own enumerable properties names ("keys") of an object
-- #### Array: basics
+- ### Array: basics
 	The JavaScript Array class is a global object that is used in the construction of arrays; which are high-level, list-like objects.
 	```js
 	// Create an array
@@ -381,7 +381,7 @@ We can return values from a function when we use the ```return``` statement, thi
 		let last = fruits.pop() //returns the element that just removed
 	```
 	-  See more [Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#instance_methods)
-- #### setTimeout, setInterval
+- ### setTimeout, setInterval
 	- setTimeout()
 		El método setTimeout() del mixin WindowOrWorkerGlobalScope establece un temporizador que ejecuta una función o una porción de código después de que transcurre un tiempo establecido.
 		```js
@@ -401,7 +401,7 @@ We can return values from a function when we use the ```return``` statement, thi
 		```
 	- clearInterval()
 		If you want to stop this function call, then you can use the ```clearInterval()``` method
-- #### Date and time
+- ### Date and time
 	In JavaScript, date and time are represented by the ```Date``` object. The Date object provides the date and time information and also provides various methods. 
 	There are 4 ways to create a date object: 
 	1. ```new Date()```: creates a date object that shows the current date and time
@@ -447,13 +447,13 @@ We can return values from a function when we use the ```return``` statement, thi
 	```
 	_Note_: If you pass only one argument, it is treated as milliseconds. Hence, you have to pass two arguments to use this date format.
 	More [methods](https://www.programiz.com/javascript/date-time#methods) of the Data object.
-- #### Math
+- ### Math
 	Math is a built-in object that has properties and methods for mathematical constants and functions. It’s not a function object.
 	Unlike many other global objects, Math is not a constructor. All properties and [methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math#static_properties) of Math are static.
 	
 	_Note_: Many Math functions have a precision that’s implementation-dependent.
 	This means that different browsers can give a different result. Even the same JavaScript engine on a different OS or architecture can give different results!
-- #### Window
+- ### Window
 The Window interface represents a window containing a DOM document; the document property points to the DOM document loaded in that window. A window for a given document can be obtained using the document.defaultView property.
 A global variable, window, representing the window in which the script is running, is exposed to JavaScript code.
 It has a lot of useful methods, properties and constructors. Check them out here [Window](https://developer.mozilla.org/en-US/docs/Web/API/Window)
