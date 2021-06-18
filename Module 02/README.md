@@ -274,7 +274,7 @@
 	```
 - ### Getters and Setters
 	In JavaScript, accessor properties are methods that get or set the value of an object. For that, we use these two keywords:
-	- ```get``` - to define a getter method to get the property value
+	- ```get``` - to define a getter method to get the property value.
 	```js
 		const student = {
 			firstName: "Monica",
