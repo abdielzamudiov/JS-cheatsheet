@@ -106,15 +106,52 @@
 		const entries = Object.entries(socks); //entries = [["mine",3],["yesi",5]]
 		
 		//instance methods from prototype
-		const string = socks.toString();	// string = ""[object Object]""
+		const string = socks.toString();	// string = "[object Object]"
 		
 		//define your own methods
 		const allSocks = socks.countSocks();	// allSocks = 8
 	```
 	For all the methods available checkout [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object#static_methods)
 - ### Object to primitive conversion
-
+	You can convert an object to a primitive value by using methods from the prototype 	object, this methods must be overrided in order to convert it in whatever you want.
+	```js
+		const socks = {
+			mine: 3,
+			yesi: 5
+		};
+		//By default the methods behave like this
+		const string = socks.toString();	// string = "[object Object]"
+		const number = socks.valueOf();		// number = {mine: 3, yesi: 5}
+		
+		//Overriding the method
+		socks.__proto__.valueOf = function () { return this.mine + this.yesi }
+		socks.__proto__.toString = function () { 
+			return "I have " + this.mine + ' ' + "Yesi has " + this.yesi 
+		}
+		
+		console.log(socks.valueOf());	//logs 8
+		console.log(socks + 2)	// logs 10
+		console.log(socks.toString());	//logs "I have 3 Yesi has 5"
+		
+		
+		function MyNumberType(n) {
+			this.number = n;
+		}
+		
+		MyNumberType.prototype.valueOf = function() {
+			return this.number;
+		};
+		
+		MyNumberType.prototype.toString = function() {
+			return this.number + '';
+		};
+		
+		var myObj = new MyNumberType(4);
+		myObj + 3; // 7
+		myObj.toString();	//"4"
+	```
 - ### Object property flags and descriptors
+	
 - ### Object static methods
 - ### Looping through object values
 - ### Getters and Setters
