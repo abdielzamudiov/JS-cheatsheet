@@ -151,9 +151,192 @@
 		myObj.toString();	//"4"
 	```
 - ### Object property flags and descriptors
-	
+	Object properties, besides a value they have flags.
+	- Enumerable flag defines if the property is enumerable and show up un for ... in loops, unless the property's key is a Symbol. If it’s set to false then it also won’t be picked by Object.assign() or spread operator.
+	```js
+		var obj = {};
+		Object.defineProperty(obj, 'a', {
+			value: 1,
+			enumerable: true
+		});
+		
+		Object.defineProperty(obj, 'b', {
+			value: 2, 
+			enumerable: false
+		});
+		
+		for (var i in obj) {
+			console.log(i);
+		} //'a'
+		
+		Object.keys(obj); // ['a']
+	```
+	- Writable flag is to set if a property can be reassigned or not.
+	```js
+		'use strict'
+		var obj = {}; 
+		
+		Object.defineProperty(obj, 'a', { 
+			value: 37,
+			writable: false
+		});
+		
+		console.log(obj.a); // 37
+		obj.a = 25; // throws a TypeError
+	```
+	- Configurable flag controls at the same time whether the property can be deleted and whether its attributes(other than value and writable) can be changed.
+	```js
+		var obj = {};
+		
+		Object.defineProperty(obj, 'a', {
+			get() { return 1; },
+			configurable: false
+		});
+		
+		Object.defineProperty(obj, 'a', {
+			set() {}
+		}); // throws a TypeError (set was undefined previously)
+		
+		Object.defineProperty(obj, 'a', {
+			get() { return 1; }
+		}); // throws a TypeError
+		
+		// (even though the new get does exactly the same thing)
+			Object.defineProperty(obj, 'a', {
+			value: 12
+		}); // throws a TypeError // ('value' can be changed when 'configurable' is false but not in this case due to 'get' accessor)
+	```
+	All of them are descriptors. They are 2 types of descriptors:
+		- Data descriptor.
+			Mandatory Properties:
+				- value
+			Optional properties:
+				- configurable
+				- enumerable
+				- writable
+		- Accessor descriptor.
+			Mandatory properties:
+				- Either ```get``` or ```set``` or both
+			Optional properties:
+				- configurable
+				- enumerable
+		
 - ### Object static methods
+	JavaScript static methods are generally used to create utility functions. The static methods are not called on the instance of class they are made to call directly on the class.
+	```js
+		class Demo {
+			static staticMethod() {
+    			console.log("Hi Im a static method");
+  			}
+		}
+		const instanceDemo = new Demo();
+		
+		Demo.prototype.staticMethod();	//Hi Im a static method
+		instanceDemo.staticMethod();	// Throw Error!
+	```
+	The Object class has static methods that are available in all JS.
+	Here are some of them
+	```js
+		Object.create();	//Creates a new object
+		
+		Object.defineProperty();	//Adds the named property described by a given descriptor to an object
+		
+		Object.entries();	// returns an array containing all of the [key, value]
+		
+		Object.fromEntries();	// returns a new object from an iterable of [key, value] this is the reverse of Object.entries();
+		
+		Object.keys();	//Returns an array containing the keys
+		
+		Object.values()	//Returns an array containing the values
+	```
 - ### Looping through object values
+	There are many ways to loop through an object
+	```js
+		const fruits = {
+		  apple: 45,
+		  banana: 14,
+		  grapes: 34
+		}
+
+		//This print the same
+		for (let fruit in fruits)
+			console.log(fruit + ", " + fruits[fruit]) 
+
+		for (let [fruit, quantity] of Object.entries(fruits))
+			console.log(fruit + ", " + quantity)
+
+		//This only can print the values o the keys
+		for (let value of Object.values(fruits))
+			console.log(value);
+
+		for (let key of Object.keys(fruits))
+			console.log(key);
+	```
 - ### Getters and Setters
+	In JavaScript, accessor properties are methods that get or set the value of an object. For that, we use these two keywords:
+	- ```get``` - to define a getter method to get the property value
+	```js
+		const student = {
+			firstName: "Monica",
+			get getName() {
+			return this.firstName;
+			}
+		};
+		
+		console.log(student.getName);	//logs "Monica"
+		console.log(student.getName());	//Throws Error!
+	```
+	- ```set``` - to define a setter method to set the property value.
+	```js
+		const student = {
+			firstName: "Monica",
+
+			set setName(newName) {
+				return this.firstName = newName;
+			}
+		}
+		
+		student.setName = "Mariana";  //{ firstName: 'Mariana', setName: [Setter] }
+		student.setName("Mario"); //Throws Error!
+	```
 - ### Deleting object properties
+	In order to delete an object property you must use the ```delete``` keyword.
+	```js
+		const fruits = {
+			apple: 45,
+			banana: 14,
+			grapes: 34
+	  	}
+		console.log(fruits.apple);	// logs 45
+		delete fruits.apple;
+		console.log(fruits.apple);	// logs undefined
+	```
 - ### Comparing objects
+	We can't compare objects with the ```==``` or the ```===```, because of objects are assigned by reference, not by value like primitive values on JS.
+	```js
+		const str1 = "To compare";
+		const str2 = "To compare";
+
+		const obj1 = {name: "Joseph", lastName: "Joestar"};
+		const obj2 = {name: "Joseph", lastName: "Joestar"};
+
+		const obj3 = obj1;
+
+		console.log(str1 === str2);	// logs true
+		console.log(obj1 === obj2);	// logs false, same keys and values, but different reference
+
+		console.log(obj1 === obj3);	// logs true, same reference
+		console.log(obj1.name === obj2.name);	// logs true, because properties are primitive
+	```
+	But we can compare them in deep by converting them into JSON with ```JSON.stringify()```.
+	```js
+		const obj1 = {name: "Joseph", lastName: "Joestar"};
+		const obj2 = {name: "Joseph", lastName: "Joestar"}
+		
+		console.log(JSON.stringify(obj1) === JSON.stringify(obj2));	// logs true
+		obj2.nickname = "JoJo";
+		console.log(JSON.stringify(obj1) === JSON.stringify(obj2));	// logs false
+	```
+	
+	
+	
