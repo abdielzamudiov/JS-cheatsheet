@@ -68,9 +68,52 @@
 		console.log(arr)	//logs [1, 2, 3]
 	```
 - ### Sorting arrays
-	
+	JS has an Array.prototype method ```sort()```  to sort arrays. This method sorts the array and returns a new array sorted. It can recieve a compare function as a parameter.
+	```js
+		let arr = [8,3,1,6];
+		let arrSorted = [...arr].sort(); // [1,3,6,8]
+		
+		arr = [123,89,9,0,11111];
+		arrSorted = [...arr].sort(); // [0, 11111, 123, 89, 9]
+	```
+	The default sort() method converts elements into strings and sort them according to the UTF-16 code units values. If you dont need the default behavior you can use a copare function.
+	```js
+		arr = [123,89,9,0,11111];
+		
+		sort(compareFunction); 
+		
+		arrSorted = [...arr].sort((firstElement, secondElement) => { ... }); 
+		
+		arrSorted = [...arr].sort((a, b) => a - b ); // [0, 9, 89, 123, 11111]
+	```
+	- ```firstElement```: the first element of comparision.
+	- ```secondElement```: the second element of comparision.
+	- ```compareFunction```: defines de sort order. If is supplied all non-```undefined``` array elements are sorted according to the return value of the compare function (all undefined are sorted at the end of the array).
+	We can sort an array however we want.
+	- If compareFunction(a, b) returns a value > than 0, sort b before a.
+	- If compareFunction(a, b) returns a value ≤ 0, leave a and b in the same order.
 - ### Object methods
+	There are static methods, and Instance methods, and also you can add your own methods.
+	```js
+		const socks = {
+			mine: 3,
+			yesi: 5,
+			countSocks: function() {
+				return this.mine + this.yesi
+			}
+		};
+		//static methods
+		const entries = Object.entries(socks); //entries = [["mine",3],["yesi",5]]
+		
+		//instance methods from prototype
+		const string = socks.toString();	// string = ""[object Object]""
+		
+		//define your own methods
+		const allSocks = socks.countSocks();	// allSocks = 8
+	```
+	For all the methods available checkout [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object#static_methods)
 - ### Object to primitive conversion
+
 - ### Object property flags and descriptors
 - ### Object static methods
 - ### Looping through object values
