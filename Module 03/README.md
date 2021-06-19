@@ -3,7 +3,7 @@
     ##### What is Scope?
     Scope determines the visibility or accessibility of a variable or other resource in the area of your code.
 	
-	A block scope is the area within **if**, **switch** conditions or **for** and **while** loops. Generally speaking, whenever you see **{curly brackets}**, it is a block. In ES6, **const** and **let** keywords allow developers to declare variables in the block scope, which means those variables exist only within the corresponding block.
+	A block scope is the area within **if**, **switch** conditions or **for** and **while** loops. Generally speaking, whenever you see **{curly brackets}**, it is a block. In ES6, **const** and **let** keywords allow developers to declare variables in the block scope, which means those variables exist only within the corresponding block.   
 	Example:
 	```js
 		function food() {
@@ -22,7 +22,7 @@
 		// error: fruit3 is not defined
 	```
 - ### Function default parameters
-	It allows you to set default values for your function parameters if no value is passed or if undefined is passed.
+	It allows you to set default values for your function parameters if no value is passed or if undefined is passed.   
 	Example:
 	```js
 		function add(a = 3, b = 5) {
@@ -88,7 +88,7 @@
 		fun('Mukul','Latiyan','Lionel','Messi','Barcelona');
 	```
 - ### Spread operator ```(...)```
-	Allows an iterable such as an array expression or string to be expanded in places where zero or more arguments (for function calls) or elements (for array literals) are expected, or an object expression to be expanded in places where zero or more key-value pairs (for object literals) are expected.
+	Allows an iterable such as an array expression or string to be expanded in places where zero or more arguments (for function calls) or elements (for array literals) are expected, or an object expression to be expanded in places where zero or more key-value pairs (for object literals) are expected.   
 	Example:
 	```js
 		function sum(x, y, z) {
@@ -117,8 +117,8 @@
 			console.log(arr2); // output: [ 'a', 'b', 'c', 'd' ]
 		```
 - ### String interpolation
-	The string interpolation in JavaScript is performed by template literals (strings wrapped in backticks `` ` ``) and `${expression}` as a placeholder. 
-	 Example:
+	The string interpolation in JavaScript is performed by template literals (strings wrapped in backticks `` ` ``) and `${expression}` as a placeholder.   
+	Example:
 	 ```js
 		const number = 42;
 		const message = `The number is ${number}`;
@@ -181,7 +181,7 @@
 	```
 - ### Computed property names
 	Allows the names of object properties in JavaScript object literal notation to be determined dynamically, i.e. computed.
-	JavaScript objects are really **dictionaries**, so it was always possible to dynamically create a string and use it as a key with the syntax: ```object[‘property’] = value```
+	JavaScript objects are really **dictionaries**, so it was always possible to dynamically create a string and use it as a key with the syntax: ```object[‘property’] = value```   
 	Example 1:
 	```js
 		const myPropertyName = 'c';
@@ -203,7 +203,8 @@
 		console.log(myObject.field3); // output 15
 	```
 - ### Method properties
-	A *method* is a function associated with an object, or, put differently, a method is a property of an object that is a function. Methods are defined the way normal functions are defined, except that they have to be assigned as the property of an object. See also [method definitions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Method_definitions) for more details. An example is:
+	A *method* is a function associated with an object, or, put differently, a method is a property of an object that is a function. Methods are defined the way normal functions are defined, except that they have to be assigned as the property of an object. See also [method definitions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Method_definitions) for more details.   
+	An example is:
 	```js
 		objectName.methodname = functionName;
 		var myObj = {
@@ -236,7 +237,7 @@
 	cosole.log(b); //output: 1
 	```
 - ### Destructuring
-	The **destructuring assignment** syntax is a JavaScript expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables.
+	The **destructuring assignment** syntax is a JavaScript expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables.   
 	Example:
 	```js
 		let a, b, rest;
@@ -290,14 +291,14 @@
 	#### Map
      [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) is a collection of keyed data items, just like an `Object`. But the main difference is that `Map` allows keys of any type.
 	
-	 Methods and properties are:
-		-   `new Map()` – creates the map.
-		-   `map.set(key, value)` – stores the value by the key.
-		-   `map.get(key)` – returns the value by the key, `undefined` if `key` doesn’t exist in map.
-		-   `map.has(key)` – returns `true` if the `key` exists, `false` otherwise.
-		-   `map.delete(key)` – removes the value by the key.
-		-   `map.clear()` – removes everything from the map.
-		-   `map.size` – returns the current element count.
+	 Methods and properties are:   
+		-   `new Map()` – creates the map.   
+		-   `map.set(key, value)` – stores the value by the key.   
+		-   `map.get(key)` – returns the value by the key, `undefined` if `key` doesn’t exist in map.   
+		-   `map.has(key)` – returns `true` if the `key` exists, `false` otherwise.   
+		-   `map.delete(key)` – removes the value by the key.   
+		-   `map.clear()` – removes everything from the map.   
+		-   `map.size` – returns the current element count.   
 	 Example: 
 	```js
 		let map = new Map();
@@ -315,7 +316,7 @@
 	For looping over a `map`, there are 3 methods:
 		-   `map.keys()` – returns an iterable for keys,
 		-   `map.values()` – returns an iterable for values,
-		-   `map.entries()` – returns an iterable for entries `[key, value]`, it’s used by default in `for..of`.
+		-   `map.entries()` – returns an iterable for entries `[key, value]`, it’s used by default in `for..of`.   
 	Example:
 	```js
 		let recipeMap = new Map([
@@ -341,16 +342,16 @@
 	#### Set
 	A `Set` is a special type collection – “set of values” (without keys), where each value may occur only once.
 	
-	Its main methods are:
-		-   `new Set(iterable)` – creates the set, and if an `iterable` object is provided (usually an array), copies values from it into the set.
-		-   `set.add(value)` – adds a value, returns the set itself.
-		-   `set.delete(value)` – removes the value, returns `true` if `value` existed at the moment of the call, otherwise `false`.
-		-   `set.has(value)` – returns `true` if the value exists in the set, otherwise `false`.
-		-   `set.clear()` – removes everything from the set.
-		-   `set.size` – is the elements count.
+	Its main methods are:   
+		-   `new Set(iterable)` – creates the set, and if an `iterable` object is provided (usually an array), copies values from it into the set.   
+		-   `set.add(value)` – adds a value, returns the set itself.   
+		-   `set.delete(value)` – removes the value, returns `true` if `value` existed at the moment of the call, otherwise `false`.   
+		-   `set.has(value)` – returns `true` if the value exists in the set, otherwise `false`.   
+		-   `set.clear()` – removes everything from the set.   
+		-   `set.size` – is the elements count.   
 	The main feature is that repeated calls of `set.add(value)` with the same value don’t do anything. That’s the reason why each value appears in a `Set` only once.
 
-	**For example:** We have visitors coming, and we’d like to remember everyone. But repeated visits should not lead to duplicates. A visitor must be “counted” only once.
+	**For example:** We have visitors coming, and we’d like to remember everyone. But repeated visits should not lead to duplicates. A visitor must be “counted” only once.   
 	`Set` is just the right thing for that:
 	```js
 		let set = new Set();
@@ -378,10 +379,10 @@
 		let set = new Set(["oranges", "apples", "bananas"]);
 		for (let value of set) alert(value);
 	```
-	The same methods `Map` has for iterators are also supported:
-		-   `set.keys()` – returns an iterable object for values,
-		-   `set.values()` – same as `set.keys()`, for compatibility with `Map`,
-		-   `set.entries()` – returns an iterable object for entries `[value, value]`, exists for compatibility with `Map`.
+	The same methods `Map` has for iterators are also supported:   
+		- `set.keys()` – returns an iterable object for values,   
+		- `set.values()` – same as `set.keys()`, for compatibility with `Map`,   
+		- `set.entries()` – returns an iterable object for entries `[value, value]`, exists for compatibility with `Map`.   
 - ### Intl object
 	The **`Intl`** object is the namespace for the ECMAScript Internationalization API, which provides language sensitive string comparison, number formatting, and date and time formatting. The **`Intl`** object provides access to several constructors as well as functionality common to the internationalization constructors and other language sensitive functions.
 	#### Constructor properties
