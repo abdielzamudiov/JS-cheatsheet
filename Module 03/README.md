@@ -7,7 +7,7 @@
 	Example:
 	```js
 		function food() {
-    		if(true) {
+		if(true) {
         		var fruit1 = 'apple';        // exist in function scope
         		const fruit2 = 'banana';     // exist in block scope
         		let fruit3 = 'strawberry';   // exist in block scope
@@ -283,22 +283,23 @@
 		2. Symbols are not part of the [`Object.keys()`](https://flaviocopes.com/javascript-object-keys/) or [`Object.getOwnPropertyNames()`](https://flaviocopes.com/javascript-object-getownpropertynames/) result.
 		3. You can access all the symbols assigned to an object using the [`Object.getOwnPropertySymbols()`](https://flaviocopes.com/javascript-object-getownpropertysymbols/) method.
 - ### Map/Set
-	Till now, we’ve learned about the following complex data structures:
-		-   Objects are used for storing keyed collections.
-		-   Arrays are used for storing ordered collections.
+	Till now, we’ve learned about the following complex data structures:   
+	-   Objects are used for storing keyed collections.
+	-   Arrays are used for storing ordered collections.
 
 	But that’s not enough for real life. That’s why `Map` and `Set` also exist.
 	#### Map
      [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) is a collection of keyed data items, just like an `Object`. But the main difference is that `Map` allows keys of any type.
 	
 	 Methods and properties are:   
-		-   `new Map()` – creates the map.   
-		-   `map.set(key, value)` – stores the value by the key.   
-		-   `map.get(key)` – returns the value by the key, `undefined` if `key` doesn’t exist in map.   
-		-   `map.has(key)` – returns `true` if the `key` exists, `false` otherwise.   
-		-   `map.delete(key)` – removes the value by the key.   
-		-   `map.clear()` – removes everything from the map.   
-		-   `map.size` – returns the current element count.   
+	-   `new Map()` – creates the map.   
+	-   `map.set(key, value)` – stores the value by the key.   
+	-   `map.get(key)` – returns the value by the key, `undefined` if `key` doesn’t exist in map.   
+	-   `map.has(key)` – returns `true` if the `key` exists, `false` otherwise.   
+	-   `map.delete(key)` – removes the value by the key.   
+	-   `map.clear()` – removes everything from the map.   
+	-   `map.size` – returns the current element count.   
+	 
 	 Example: 
 	```js
 		let map = new Map();
@@ -314,9 +315,10 @@
 	```
 	##### Iteration over Map
 	For looping over a `map`, there are 3 methods:
-		-   `map.keys()` – returns an iterable for keys,
-		-   `map.values()` – returns an iterable for values,
-		-   `map.entries()` – returns an iterable for entries `[key, value]`, it’s used by default in `for..of`.   
+	-   `map.keys()` – returns an iterable for keys,
+	-   `map.values()` – returns an iterable for values,
+	-   `map.entries()` – returns an iterable for entries `[key, value]`, it’s used by default in `for..of`.   
+	
 	Example:
 	```js
 		let recipeMap = new Map([
@@ -343,12 +345,13 @@
 	A `Set` is a special type collection – “set of values” (without keys), where each value may occur only once.
 	
 	Its main methods are:   
-		-   `new Set(iterable)` – creates the set, and if an `iterable` object is provided (usually an array), copies values from it into the set.   
-		-   `set.add(value)` – adds a value, returns the set itself.   
-		-   `set.delete(value)` – removes the value, returns `true` if `value` existed at the moment of the call, otherwise `false`.   
-		-   `set.has(value)` – returns `true` if the value exists in the set, otherwise `false`.   
-		-   `set.clear()` – removes everything from the set.   
-		-   `set.size` – is the elements count.   
+	-   `new Set(iterable)` – creates the set, and if an `iterable` object is provided (usually an array), copies values from it into the set.   
+	-   `set.add(value)` – adds a value, returns the set itself.   
+	-   `set.delete(value)` – removes the value, returns `true` if `value` existed at the moment of the call, otherwise `false`.   
+	-   `set.has(value)` – returns `true` if the value exists in the set, otherwise `false`.   
+	-   `set.clear()` – removes everything from the set.   
+	-   `set.size` – is the elements count.   
+	
 	The main feature is that repeated calls of `set.add(value)` with the same value don’t do anything. That’s the reason why each value appears in a `Set` only once.
 
 	**For example:** We have visitors coming, and we’d like to remember everyone. But repeated visits should not lead to duplicates. A visitor must be “counted” only once.   
@@ -380,9 +383,9 @@
 		for (let value of set) alert(value);
 	```
 	The same methods `Map` has for iterators are also supported:   
-		- `set.keys()` – returns an iterable object for values,   
-		- `set.values()` – same as `set.keys()`, for compatibility with `Map`,   
-		- `set.entries()` – returns an iterable object for entries `[value, value]`, exists for compatibility with `Map`.   
+	- `set.keys()` – returns an iterable object for values,   
+	- `set.values()` – same as `set.keys()`, for compatibility with `Map`,   
+	- `set.entries()` – returns an iterable object for entries `[value, value]`, exists for compatibility with `Map`.   
 - ### Intl object
 	The **`Intl`** object is the namespace for the ECMAScript Internationalization API, which provides language sensitive string comparison, number formatting, and date and time formatting. The **`Intl`** object provides access to several constructors as well as functionality common to the internationalization constructors and other language sensitive functions.
 	#### Constructor properties
