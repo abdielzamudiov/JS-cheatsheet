@@ -67,6 +67,44 @@
 		console.log(arr.unshift('a'))	//logs 3
 		console.log(arr)	//logs [1, 2, 3]
 	```
+	- ```concat()``` method: helps to concatenate two arrays together.
+	```js
+		let arr =  ['a', 'b', 'c', 'd']; //first array
+		let arr2 = [true, false, true]; //second array
+		console.log(arr.concat(arr2));//returns ["a", "b", "c", "d", true, false, true]
+		console.log(arr);//returns ['a', 'b', 'c', 'd']
+		console.log(arr2);//returns[true, false, true]
+	```
+	- ```join()``` methods: joins all the elements in an array to create a string, and does not affect or modify 
+	```js
+		let arr =  ['a', 'b', 'c', 'd'];
+		console.log(arr.join(''));//returns 'abcd'
+		console.log(arr.join('-'));//returns 'a-b-c-d'
+		console.log(arr)//returns ['a', 'b', 'c', 'd']
+	```
+	- ```reverse()``` method: takes an array, and reverses it. is reverse the original array and returns it.
+	```js
+		let arr =  ['a', 'b', 'c', 'd'];
+		console.log(arr.reverse());//returns ['d', 'c', 'b', 'a']
+		console.log(arr);//returns ['d', 'c', 'b', 'a']
+	```
+	- ```sort()``` method: sorts the array, causing permanent change to the array.
+	```js
+		let arr =  ['a', 'b', 'c', 'd'];
+		console.log(arr.reverse());//returns ['d', 'c', 'b', 'a']
+		console.log(arr);//returns ['d', 'c', 'b', 'a']
+	```
+	- ```slice()``` method: returns a part of the array, and the original remains intact.
+	```js
+		let arr =  ['a', 'b', 'c', 'd'];
+		console.log(arr.slice(1,2));//returns ['b']
+	```
+	- ```splice()``` method: Just like the "slice();" method, this also targets an array and returns the targeted array, but it causes a permanent change in the array.
+	```js
+		let arr = [1, 2, 3, 4, 5, 'a', 'b', 'c'];
+		console.log(arr.splice(5, 3));//returns ['a', 'b', 'c']
+		console.log(arr)//returns [1, 2, 3, 4, 5]
+	```
 - ### Sorting arrays
 	JS has an Array.prototype method ```sort()```  to sort arrays. This method sorts the array and returns a new array sorted. It can recieve a compare function as a parameter.
 	```js
