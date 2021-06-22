@@ -35,7 +35,7 @@
         - Redeclared: var variables can be re-declared and updated. For example
         ```js
             var a=5;
-            var b=6; // no error triggered. var can be redeclared.
+            var a=6; // no error triggered. var can be redeclared.
         ```
 
         - Scope: var can have functional scope and global scope.
