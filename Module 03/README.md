@@ -7,7 +7,7 @@
 	Example:
 	```js
 		function food() {
-		if(true) {
+			if(true) {
         		var fruit1 = 'apple';        // exist in function scope
         		const fruit2 = 'banana';     // exist in block scope
         		let fruit3 = 'strawberry';   // exist in block scope
@@ -25,7 +25,7 @@
 	It allows you to set default values for your function parameters if no value is passed or if undefined is passed.   
 	Example:
 	```js
-		function add(a = 3, b = 5) {
+		function add(a = 3, b = 5) {   
         	return a + b; 
     	}
 
@@ -35,7 +35,7 @@
 	```
 	It is **important to note** that parameters are set from **left to right**. So the overwriting of default values will occur based on the position of the your input value when you call the function:
 	```js
-		function createArray(a = 10, b) {
+		function createArray(a = 10, b) {   
         	return [a,b]; 
     	}
 
@@ -44,7 +44,7 @@
 	```
 	You can also set a function as the default parameter:
 	```js
- 		function createA() {
+ 		function createA() {   
         	return 10;
     	}
 
@@ -56,11 +56,12 @@
 	```
 	**Note:** The function cannot be an internal function because the default arguments are evaluated when the function is called. Therefore the following will not work:
 	```js
-		function add(a = createA(), b = 5) {
+		function add(a = createA(), b = 5) {   
         	function createA() {
         		return 10;
-        	}
-        	return a + b; 
+        	}   
+        	
+			return a + b; 
     	}
 
     	add(); // error: createA is not defined
@@ -237,14 +238,93 @@
 	cosole.log(b); //output: 1
 	```
 - ### Destructuring
-	The **destructuring assignment** syntax is a JavaScript expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables.   
-	Example:
+	The **destructuring assignment** syntax is a JavaScript expression that makes it possible to unpack values.   
+	#### From arrays, into distinct variables   
+	Example:   
 	```js
 		let a, b, rest;
 
 		[a, b, ...rest] = [10, 20, 30, 40, 50];
 		console.log(rest); // output: [30, 40, 50]
 	```
+	Basic variable assignment:
+	```js
+		const foo = ['one', 'two', 'three'];
+
+		const [red, yellow, green] = foo;
+		console.log(red); // output: one
+		console.log(yellow); // output: two
+		console.log(green); // output: three
+	```
+	Parsing an array returned from a function:
+	```js
+		function f() {
+  			return [1, 2];
+		}
+
+		let a, b;
+		[a, b] = f();
+		console.log(a); // output: 1
+		console.log(b); // output: 2
+	```
+	#### Or properties from objects   
+	Basic assigment:   
+	```js
+		const user = {
+    		id: 42,
+    		is_verified: true
+		};
+
+		const {id, is_verified} = user;
+
+		console.log(id); // output: 42
+		console.log(is_verified); // output: true
+	```
+	Assignment without declaration:   
+	A variable can be assigned its value with destructuring separate from its declaration.
+	```js
+		let a, b;
+
+		({a, b} = {a: 1, b: 2});
+		
+		console.log(a); // output: 1
+		console.log(b); // output: 2
+	```
+	Assigning to new variable names:   
+	A property can be unpacked from an object and assigned to a variable with a different name than the object property.
+	```js
+		const o = {p: 42, q: true};
+		const {p: foo, q: bar} = o;
+
+		console.log(foo); // output: 42
+		console.log(bar); // output: true
+	```
+	Here, for example, `const {p: foo} = o` takes from the object `o` the property named `p` and assigns it to a local variable named `foo`.   
+	
+	Unpacking fields from objects passed as a function parameter:
+	```js
+		const user = {
+  			id: 42,
+  			displayName: 'jdoe',
+			
+  			fullName: {   
+    			firstName: 'John',
+    			lastName: 'Doe'
+  			}
+		};
+
+		function userId({id}) {   
+  			return id;
+		}
+
+		function whois({displayName, fullName: {firstName: name}}) {   
+  			return `${displayName} is ${name}`;
+		}
+
+		console.log(userId(user)); // output: 42   
+		console.log(whois(user));  // output: jdoe is John
+	```
+	This unpacks the `id`, `displayName` and `firstName` from the user object and prints them.   
 - ### Symbol
 	Symbol is a primitive data type of JavaScript, along with [string](https://flaviocopes.com/javascript-string/), [number](https://flaviocopes.com/javascript-number/), boolean, null and undefined.
 	It’s a very peculiar data type. Once you create a symbol, its value is kept private and for internal use.
@@ -410,7 +490,6 @@
 		}
 
 		log("en-US"); // output: 5/24/2012 26,254.39
-
 		log("de-DE"); // output: 24.5.2012 26.254,39
 	```
 		
