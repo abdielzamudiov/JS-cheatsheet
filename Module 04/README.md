@@ -1,5 +1,6 @@
 ### Module 04:
 - #### Variable scope
+    - Scope essentially means where these variables are available for use. 
     - Different Scopes
         - Javascript has 3 different scopes : Global Scope, Function Scope and Block Scope
             - Block Scope
@@ -31,7 +32,13 @@
                 ```
 - #### var, const, let
     - var
-        - var can have functional scope and global scope.
+        - Redeclared: var variables can be re-declared and updated. For example
+        ```js
+            var a=5;
+            var b=6; // no error triggered. var can be redeclared.
+        ```
+
+        - Scope: var can have functional scope and global scope.
         ```js
             function foo(){
                 {
@@ -42,7 +49,20 @@
             }
             //a is not accesible outside of the function
             console.log(a); //undefined
-    - let - const
+        ```
+        - Hoisting: Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution. This means that if we do this:
+        ```js
+            console.log (greeter);
+            var greeter = "say hello";
+        ```
+        - it is interpreted like this
+        ```js
+            var greeter;
+            console.log(greeter); // greeter is undefined
+            greeter = "say hello"
+        ```
+
+    - let
         - let can have functional scope, global scope and block scope.
         ```js
             function foo(){
@@ -59,6 +79,47 @@
             }
             //Out of the function the variables b and c are undefined as well.
         ```
+        - let can be updated but not redefined, for example
+        ```js
+            let a="original value";
+            a="new value"; // no error, a can be updated :)
+
+            let a="new declaration" // error: Identifier 'greeting' has already been declared
+        ```
+        - Please note that if the variable is defined in different scope there will be no error.
+        ```js
+            let a="original value";
+            if (true){
+                let a="new value inside of a new block scope";
+                console.log(a) //new value inside of a new block scope
+            }
+            console.log(a) //original value
+            //no errors :)
+        ```
+        - Hoisting: Just like  var, let declarations are hoisted to the top. Unlike var which is initialized as undefined, the let keyword is not initialized. So if you try to use a let variable before declaration, you will get a Reference Error.
+    - const
+        - const can have functional scope, global scope and block scope
+        ```js
+            function foo(){
+                {
+                    const c=3;
+                }
+                //c is not accessible outside of the block
+                console.log(c); //undefined
+                const c=3;
+                console.log(c); //3
+            }
+            //Out of the function the variables c is undefined as well.
+        ```
+        - const cannot be updated or re declared
+        ```js
+            const pi=3.14;
+            pi=3.14159 // error: Assignment to constant variable. 
+            const pi = 3;// error: Identifier 'pi' has already been declared
+        ```
+        - hoisting: Just like let, const declarations are hoisted to the top but are not initialized.
+
+
 - #### Hoisting
     - var
         - A variable "var" can be used before it has been declared.
