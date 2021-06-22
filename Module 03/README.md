@@ -7,10 +7,10 @@
 	Example:
 	```js
 		function food() {
-			if(true) {
-        		var fruit1 = 'apple';        // exist in function scope
-        		const fruit2 = 'banana';     // exist in block scope
-        		let fruit3 = 'strawberry';   // exist in block scope
+			if (true) {
+        			var fruit1 = 'apple';        // exist in function scope
+        			const fruit2 = 'banana';     // exist in block scope
+        			let fruit3 = 'strawberry';   // exist in block scope
     		}
     		console.log(fruit1);
     		console.log(fruit2);
@@ -26,9 +26,8 @@
 	Example:
 	```js
 		function add(a = 3, b = 5) {   
-        	return a + b; 
+        		return a + b; 
     	}
-
     	add(4,2); // 6
     	add(4); // 9
     	add(); // 8
@@ -36,7 +35,7 @@
 	It is **important to note** that parameters are set from **left to right**. So the overwriting of default values will occur based on the position of the your input value when you call the function:
 	```js
 		function createArray(a = 10, b) {   
-        	return [a,b]; 
+        		return [a,b]; 
     	}
 
     	createArray(); // [10, undefined]
@@ -45,11 +44,11 @@
 	You can also set a function as the default parameter:
 	```js
  		function createA() {   
-        	return 10;
+        		return 10;
     	}
 
     	function add(a = createA(), b=5) {
-        	return a + b; 
+        		return a + b; 
     	}
 
     	add(); // 15
@@ -57,9 +56,9 @@
 	**Note:** The function cannot be an internal function because the default arguments are evaluated when the function is called. Therefore the following will not work:
 	```js
 		function add(a = createA(), b = 5) {   
-        	function createA() {
-        		return 10;
-        	}   
+        		function createA() {
+        			return 10;
+        		}   
         	
 			return a + b; 
     	}
@@ -233,7 +232,7 @@
 	cosole.log(a); //output: 1
 	cosole.log(b); //output: 3
 	
-	[ b, a ] = [ a, b ]; // swipe values
+	[ b, a ] = [ a, b ]; // swapping values
 	cosole.log(a); //output: 3
 	cosole.log(b); //output: 1
 	```
