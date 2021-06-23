@@ -349,7 +349,7 @@ We can return values from a function when we use the ```return``` statement, thi
 		 coolCharacter.lastName = "Wallace";
 		 coolChatacter["hobbies"] = "Dancing";
 		 console.log(coolCharacter); // {name: "Mia", lastName: "Wallace", hobbies: "Dancing"}
-		 console.log(coolCharacter.lastName); // "Dancing"
+		 console.log(coolCharacter.hobbies); // "Dancing"
 	 ```
 	- Iterating: you can iterate with a ```for...in``` statement
 	- ```Object.keys(obj)```: returns an array with all the own enumerable properties names ("keys") of an object
@@ -391,7 +391,7 @@ We can return values from a function when we use the ```return``` statement, thi
 		-```delay``` the time in miliseconds that the timer should wait before the specified function os executed.
 		-```arg1, ..., argN``` this are optional, this arguments are passed through to the function specified by function.
 	- clearTimeout()
-		If you want to stop the function call of the setTimeout, you can use the ```setTimeout()``` method:
+		If you want to stop the function call of the setTimeout, you can use the ```clearTimeout()``` method:
 		```js
 			clearTimeout(timeoutID); // timeoutID is what the setTimeout returns
 		```

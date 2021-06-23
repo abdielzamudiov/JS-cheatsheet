@@ -190,7 +190,7 @@
 	```
 - ### Object property flags and descriptors
 	Object properties, besides a value they have flags.
-	- Enumerable flag defines if the property is enumerable and show up un for ... in loops, unless the property's key is a Symbol. If it’s set to false then it also won’t be picked by Object.assign() or spread operator.
+	- Enumerable flag defines if the property is enumerable and show up in for ... in loops, unless the property's key is a Symbol. If it’s set to false then it also won’t be picked by Object.assign() or spread operator.
 	```js
 		var obj = {};
 		Object.defineProperty(obj, 'a', {
@@ -259,6 +259,13 @@
 				- configurable
 				- enumerable
 		
+There is a method known a ```Object.getOwnPropertyDescriptor```, which allows querying the full information about the property.
+The syntax of the ```Object.getOwnPropertyDescriptor``` method is the following:
+```js
+	let descriptor = Object.getOwnPropertyDescriptor(obj, propName);
+```
+For more examples checkout [here](https://www.w3docs.com/learn-javascript/property-flags-and-descriptors.html)
+
 - ### Object static methods
 	JavaScript static methods are generally used to create utility functions. The static methods are not called on the instance of class they are made to call directly on the class.
 	```js
@@ -303,7 +310,7 @@
 		for (let [fruit, quantity] of Object.entries(fruits))
 			console.log(fruit + ", " + quantity)
 
-		//This only can print the values o the keys
+		//This only can print the values of the keys
 		for (let value of Object.values(fruits))
 			console.log(value);
 
