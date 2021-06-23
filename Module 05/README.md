@@ -36,8 +36,65 @@
 		console.log(res); // 15
 	```
 - #### Arrow functions
+	Its a shorthanded arternative to traditional function expressions, but is limited and cant be used in all situations.
+	Differences and limitations:
+	- Does not have its own bindings to `this` or `super`, and should not be used as methods.
+	- Does not have `arguments` or `new.target`
+	- Not suitable for `call`, `apply` and `bind` methods, which generally rely on establishing a scope
+	- Can not be used as constructors.
+	- Can not use `yield`, within its body.
+	```js
+		const aPlusHundred(a) => {
+ 			return a + 100;
+  		}
+	```
+	Some syntax rules for an arrow function are:
+	- Parameters should be passed in a small bracket
+	```js
+		const sum = (firstParameter, secondParameter) => {
+			return firstParameter + secondParameter;
+		}
+	```
+	- If there is only one parameter, then the bracket is optional
+	```js
+		const print = printable => {
+			return console.log(printable);
+		}
+	```
+	- If there is no parameter, then it must have a small empty bracket
+	```js
+		const printHi = () => {
+			return console.log("Hi");
+		}
+	```
+	- If there is only a single expression in the function body, then using parentheses is optional
+	```js
+		const printHi = () => return console.log("Hi");
+	```
+	- If there is only a single expression in the function body, then using the return statement is optional
+	```js
+		const sum = (a, b) =>  a + b;
+	```
 - #### Self-invoked functions
+	A JavaScript function that runs as soon as it is defined. Also known as an IIFE (Immediately Invoked Function Expression).
+	```js
+		(function () {
+			statements
+		})();
+	```
+	It can also be a function expression.
+	```js
+		let add = function (num1,num2){
+			let sum = num1+ num2; 
+			return sum;
+		}(8,9);
+		console.log(add); // 17 
+	```
+	##### Use cases:
+	- Avoiding polluting the global namespace:
+		If we have some initiation code that we don't need to use again, we could use the IIFE pattern. As we will not reuse the code again, using IIFE in this case is better than using a function declaration or a function expression.
 - #### Callbacks
+	
 - #### Recursion
 - #### Anonymous functions
 - #### Currying, High order functions
