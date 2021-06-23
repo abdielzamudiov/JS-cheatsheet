@@ -94,11 +94,151 @@
 	- Avoiding polluting the global namespace:
 		If we have some initiation code that we don't need to use again, we could use the IIFE pattern. As we will not reuse the code again, using IIFE in this case is better than using a function declaration or a function expression.
 - #### Callbacks
-	
+	A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.
+	```js
+		function greeting(name) {
+ 			alert('Hello ' + name);
+  		}
+		
+  		function processUserInput(callback) {
+			var name = prompt('Please enter your name.');
+			callback(name);
+  		}
+		
+  		processUserInput(greeting);
+	```
+	A simple example of a callback function in JavaScript is an ordinary button:
+	```js
+		document.getElementById("Button1").addEventListener("click", function() {
+			console.log("Button was clicked");
+		}, false);	
+	```
 - #### Recursion
+	Recursion is a process of calling itself. A function that calls itself is called a recursive function. 
+	A recursive function must have a condition to stop calling itself. Otherwise, the function is called indefinitely. Once the condition is met, the function stops calling itself. This is called a base condition.
+	```js
+		function recurse() {
+			if(condition) {
+				recurse();
+			}
+			else {
+				// stop calling recurse()
+			}
+		}
+		
+		recurse();
+	```
 - #### Anonymous functions
+	Anonymous Function is a function that does not have any name associated with it. Normally we use the function keyword before the function name to define a function in JavaScript, however, in anonymous functions in JavaScript, we use only the function keyword without the function name.
+	An anonymous function is not accessible after its initial creation, it can only be accessed by a variable it is stored in as a _function as a value_.
+	```js
+		// With the function statement
+		let greet = function (platform) {
+    		console.log("Welcome to ${platform}!");
+		};
+		
+		//Or with an Arrow Function
+		let greet = (platform) => {
+			console.log("Welcome to ${platform}!");
+		};
+		
+		greet("GeeksforGeeks");	// "Welcome to GeekforGeeks"
+	```
+	We can also pass anonymous functions as paremeters into another function (callbacks).
+	```js
+		setTimeout(function () {
+    		console.log("Welcome to GeeksforGeeks!");
+		}, 2000);
+	```
+	We use them also in IIFE.
 - #### Currying, High order functions
+	- ##### High Order Functions: 
+		High-order functions are functions that take another function as an argument, and/or returns another function.
+		```js
+			// High-order function no.1:
+			// Function that takes a function as a argument
+			function myHighOrderFuncOne(myFunc) {
+				// some code
+			}
+			
+			// High-order function no.2:
+			// Function that returns a function
+			function myHighOrderFuncTwo() {
+				// some code
+				// Return a function
+				return function() {
+					// some code
+				}
+			}
+			
+			// High-order function no.3:
+			// Function that takes a function as a argument
+			// and also returns a function
+			function myHighOrderFuncThree(myFunc) {
+				// some code
+				// Return a function
+				return function() {
+					// some code
+				}
+			}
+		```
+		##### Built-in JavaScript high-order functions:
+		- `map()`
+		- `filter()`
+		- `reduce()`
+	- ##### Currying
+		Currying is an advanced technique of working with functions. Currying is a transformation of functions that translates a function from callable as f(a, b, c) into callable as f(a)(b)(c).
+		```js
+			function sum (a){
+				return function (b){
+					return a + b;
+				}
+			}
+			const result = sum(1)(2);
+			console.log(result);	// 3
+		```
+		How to curry a normal function?
+		```js
+			function curry(func) {
+				return function curried(...args) {
+					if (args.length >= func.length) {
+						return func.apply(this, args);
+					} else {
+						return function(...args2) {
+							return curried.apply(this, args.concat(args2));
+					  	}
+				  	}
+			  	};
+		  	}
+			function date (year, month, day){
+				return `${year} ${month} ${day}`;
+			}
+				
+			const curriedDate = curry(date);
+			
+			console.log(curriedDate(2000,12,1));	//2000 12 1
+			console.log(curriedDate(2000)(12)(1));	//2000 12 1
+			console.log(curriedDate(2000,12)(1));	//2000 12 1
+
+		```
+		What is Currying for?
+		To explain this lets see the example above. We can create a function that has a fixed year, that can take any month and day but cannot change the year, lets see:
+		```js
+		//
+			const year2000 = curriedDate(2000);	//this function has year fixed to 2000
+			
+			console.log(year2000(12,06)); // 2000 12 6
+			console.log(year2000(3,7)); // 2000 3 5
+			
+			//lets create another func but with the month fixed from the year2000 function
+			const year2000January = year2000(1);
+			
+			console.log(year2000January(31));	// 2000 1 31
+			console.log(year2000January(16));	// 2000 1 16
+			
+		```
 - #### Pure functions
+	
 - #### Functional programming
 - #### Context, global context
 - #### this
