@@ -29,7 +29,7 @@
 		let res = add(5,2);
 		console.log(res); // 7 
 	```
-	- Using Function Constructor: A function can be dynamically created using the Function constructor, but it suffers from security and performance issues and is not advisable to use. In the Function constructor, you pass parameters and function body as a string.
+	- Using Function Constructor: A function can be dynamically created using the Function constructor, but it suffers from security and performance issues and is not advisable to use. In the Function constructor, you pass parameters and function body as a string. 
 	```js
 		var add = Function('num1','num2','return num1+num2');
 		let res = add (7,8);
