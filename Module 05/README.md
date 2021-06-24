@@ -406,5 +406,53 @@
 		console.log(nPerson.greeting2);  //cannot re-bind, and logs Juan
 	```
 - #### Immutable
+	Mutable objects are objects whose value can change once created, while immutable objects are those whose value cannot change once created. 
+	In JavaScript numbers, strings, null, undefined and Booleans are primitive types which are immutable. Objects, arrays, functions, classes, maps, and sets are mutable.
+	```js
+		var car = {
+    color: 'red',
+    tyres: '4'
+	}
+	var anotherCar = car; //here we assign the value of car to anotherCar. 
 	
+	car.color = 'blue'; //we alter a value in the original object
+	
+	console.log(anotherCar.color); //this shows blue because it is referencing the memory location of the car object. 
+	console.log(car === anotherCar) //true (because comparison is by reference)
+	```
+	What it means for mutable types is that, when we change the value of a variable, changes apply across all references to that variable.
+	```js
+		var aString = "This is a string";
+		var bString = aString;
+		//now we alter aString
+		aString = "The string has changed";
+		
+		console.log(aString); //The string has changed
+		console.log(bString); //This is a string
+		console.log(aString === bString); //false
+	```
+	When you modify a string, a whole new string is created, and the name of the variable assigned to its memory reference. There’s no way of changing the internal state of an immutable type, so the variable simply gets reassigned to a new reference. Same goes for numbers.
+	##### Can we create immutable JavaScript objects?
+	JavaScript has the Object.freeze() function. Calling the function after creating your objects marks all the properties of the object immutable.
+	If you try to reassign a property value, it will silently fail or in case you have strict mode turned on, an exception will be thrown. 
+	```js
+		obj4 = {name:"James"}
+		obj5 = obj4;
+		
+		Object.freeze(obj4);
+		
+		console.log(obj5); // {name: "James"}
+		
+		obj4.name = "Daniels"; //Trying to modify the property value. Note that this won't throw an error, however, it won't change the value of the name property. 
+		obj5.name = "Daniels";
+		console.log(obj4); // {name: "James"}
+		console.log(obj5); // {name: "James"}
+	```
+	There is also a library called **Immutable.js** that provides Persistent Immutable data structures including: `List`, `Stack`, `Map`, `OrderedMap`, `Set`, `OrderedSet` and `Record`.
+	```js
+		const { Map } = require('immutable');
+		const map1 = Map({ a: 1, b: 2, c: 3 });
+		const map2 = map1.set('b', 50);
+		map1.get('b') + " vs. " + map2.get('b'); // 2 vs. 50
+	```
 

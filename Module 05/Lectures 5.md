@@ -32,4 +32,6 @@
 	3. [Function.prototype.apply() - JavaScript | MDN (mozilla.org)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)
 	4. [Function.prototype.bind() - JavaScript | MDN (mozilla.org)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)
 - #### Immutable
+	1. [Mutable and Immutable Types in JavaScript (With Examples) – HowToCreateApps](https://howtocreateapps.com/mutable-and-immutable-types-in-javascript-with-examples/)
+	2. [immutable-js/immutable-js: Immutable persistent data collections for Javascript which increase efficiency and simplicity. (github.com)](https://github.com/immutable-js/immutable-js/)
 	
