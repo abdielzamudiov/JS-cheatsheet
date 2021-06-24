@@ -238,10 +238,173 @@
 			
 		```
 - #### Pure functions
-	
+	Pure Function is a function (a block of code ) that always returns the same result if the same arguments are passed. It does not depend on any state, or data change during a program’s execution rather it only depends on its input arguments. And this functions does not have side effects.
+	```js
+		function calculateGST( productPrice ) {
+    		return productPrice * 0.05;
+		}
+	```
+	Below are the some side effects (but not limited to) which a function should not produce in order to be considered as a pure function.
+	-   Making a HTTP request
+	-   Mutating data
+	-   Printing to a screen or console
+	-   DOM Query/Manipulation
+	-   Math.random()
+	-   Getting the current time
 - #### Functional programming
+	Functional programming is a programming paradigm or style of programming that relies heavily on the use of pure and isolated functions. In functional programming, we use pure functions, which are functions that don't have side effects.
+	- Avoid mutations and side effects: 
+		Avoid changing things, such as a global variable, otherwise it could lead into a bug, or an unexpected behavior. Also functions must be pure functions.
+		If a function depends on a global variable, that variable should be passed to the function as an argument.
+	- Abstraction:
+		Abstractions hide details and allow us to talk about problems at a higher level without describing all the implementation details of the problem.
+		We say _**sort**_ instead of _"put a number of things in an order"_
+		Functions allows us to create our own abstractions.
 - #### Context, global context
-- #### this
+	In JavaScript, “context” refers to an object. Within an object, the keyword “this” refers to that object (i.e. “self”), and provides an interface to the properties and methods that are members of that object. When a function is executed, the keyword “this” refers to the object that the function is executed in.
+	Global context refers to the window object (in browser).
+	```js
+		console.log(this);
+		// Window {window: Window, self: Window, document: document, name: "", location: Location, …}
+	```
+- #### `this`
+	A property of an execution context, that, in non–strict mode, is always a reference to an object and in strict mode can be any value. The value depends on where the function was called.
+	```js
+		const test = {
+			prop: 42,
+			func: function() {
+				return this.prop;
+			},
+  		};
+		console.log(test.func())	//42
+	```
+	- In the global execution context (outside of any function), this refers to the global object whether in strict mode or not.
+	```js
+		console.log(this === window);	//true in browser
+		console.log(this === globalThis);	//true in node
+		var a = 37;
+		console.log(window.a);	// 37
+	```
+	- Inside a function `this` is determinated by where was the function called.
+	```js
+		function func() {
+			console.log(this);
+		}
+		
+		func();	// logs window
+		
+		// if we use "use strict"
+		"use strict"; 
+		function func() {
+			console.log(this);
+		}
+		
+		func();	// logs undefined
+	```
+	If we forget to use the `new` keyword while we use constructor functions we will refer to the global context (window).
+	```js
+		function Cat (breed, color){
+			this.breed = breed;
+			this.color = color;
+		}
+		
+		const myCat = Cat("European", "Black");
+		console.log(myCat);	//undefined
+		
+		//However properties will be added to the this object that referenced in the function, the window object.
+		console.log(window.breed);	// "European" in browser
+		console.log(globalThis.breed);	// "European" in node
+	```
+	If we use the `new` keyword, `this` will reference to the new object created.
+	```js
+		function Cat (breed, color){
+			this.breed = breed;
+			this.color = color;
+		}
+		
+		const myCat = new Cat("European", "Black");
+		console.log(myCat);	// {breed: "European", color: "Black"}
+	```
 - #### call/apply/bind
+	##### Explicit binding: 
+	We can force a function to use a specific value of `this`with the `apply()` and `call` methods that has the function prototype.
+	Both take as a parameter the value `this` that we want them to use, that's why it's called explicit binding. They differ on the way the handle arguments, `call()` takes them individually, and `apply()` takes an array of arguments.
+	```js
+		var obj = {a: 'Custom'};
+		
+		var a = 'Global';
+		
+		function whatsThis() {
+  			return this.a;  // The value of this is dependent on how the function is called
+  		}
+		
+		whatsThis();	//returns 'Global'
+		whatsThis.call(obj); 	// returns 'Custom'
+		whatsThis.apply(obj);	// returns 'Custom'
+	```
+	- `call()`: takes the `this` value as first argument, and takes the function arguments individually.
+	```js
+		var obj = {a: 'Custom'};
+		var a = 'Global';
+		
+		function whatsThis(f,b,c) {
+			return this.a + f + b + c;  
+		 }
+		 
+  		console.log(whatsThis.call(obj,1,2,3));	// Custom123
+	```
+	- `apply()`:  takes the `this` value as first argument, and takes a second value that must be an array of the arguments.
+	```js
+		var obj = {a: 'Custom'};
+		var a = 'Global';
+		
+		function whatsThis(f,b,c) {
+			return this.a + f + b + c;  
+		 }
+		 
+  		console.log(whatsThis.call(obj,[1,2,3]));	// Custom123
+	```
+	But what the this value it still depends on where is the function called.
+	```js
+		var obj = {a: 'Custom'};	
+		var a = 'Global';
+		
+		function tobeCalled(func) {
+			return func()
+		}
+		
+		function whatsThis() {
+			return this.a;  
+		}
+		
+		console.log(tobeCalled.call(obj,whatsThis)); 	// returns 'Custom'
+	```
+	##### Hard Binding
+	There is a way to bind permanently a context to `this` no matter where was called.
+	All functions have a method called `bind()` from the function prototype, this method returns a function that is binded with the `this` value you want, no matter where context you called it.
+	```js
+		function sayHi() {
+			return 'Hi, my name is ' + this.name;
+		}
+		
+		var person =  {
+			name: 'Juan',
+		};
+		
+		var greeting = sayHi.bind(person);	//hard binding into person context
+		
+		greeting(); // "Hola, me llamo Juan"
+		
+		function Person(greet) {
+			this.name = "Pedro";
+			this.greeting1 = sayHi.call(this);  
+			this.greeting2 = greet.call(this);  
+		}
+		
+		const nPerson = new Person(greeting)
+		console.log(nPerson.greeting1);  //binds it to this obj and logs Pedro
+		console.log(nPerson.greeting2);  //cannot re-bind, and logs Juan
+	```
 - #### Immutable
+	
 
