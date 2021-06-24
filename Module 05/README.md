@@ -443,7 +443,7 @@
 		
 		console.log(obj5); // {name: "James"}
 		
-		obj4.name = "Daniels"; //Trying to modify the property value. Note that this won't throw an error, however, it won't change the value of the name property. 
+		obj4.name = "Daniels"; //Trying to modify the property value. 
 		obj5.name = "Daniels";
 		console.log(obj4); // {name: "James"}
 		console.log(obj5); // {name: "James"}
