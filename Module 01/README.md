@@ -159,22 +159,22 @@
 				console.log(i); //logs 3, 5, 7
 			}
 		```
-	2. Switch case
+	2. Switch case:   
 		The **`switch`** statement evaluates an [expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators), matching the expression's value to a `case` clause, and executes [statements](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements) associated with that `case`, as well as statements in `case`s that follow the matching `case`.   
 		Example:
 		```js
 			const expr = 'Papayas';
 			switch (expr) {
   				case 'Oranges':
-    					console.log('Oranges are $0.59 a pound.');
-    					break;
+    				console.log('Oranges are $0.59 a pound.');
+    				break;
   				case 'Mangoes':
   				case 'Papayas':
-    					console.log('Mangoes and papayas are $2.79 a pound.');
-    					// expected output: "Mangoes and papayas are $2.79 a pound."
+    				console.log('Mangoes and papayas are $2.79 a pound.');
+    				// expected output: "Mangoes and papayas are $2.79 a pound."
     				break;
   				default:
-    					console.log(`Sorry, we are out of ${expr}.`);
+    				console.log(`Sorry, we are out of ${expr}.`);
 			}
 		```
 		A `default` clause; if provided, this clause is executed if the value of `expression` doesn't match any of the `case` clauses.
@@ -183,7 +183,7 @@
 
 		An alert box is often used if you want to make sure information comes through to the user.
 	```js
-		alert(message) // only parameter is message, it is of string type
+		alert(message); // only parameter is message, it is of string type
 	```
 		
 	2. Console: is an object that provides access to the browser's debugging console, it has a lot of [methods](https://developer.mozilla.org/en-US/docs/Web/API/console#methods). Most used methods are [```console.log()```](https://developer.mozilla.org/en-US/docs/Web/API/Console/log), [```console.info()```](https://developer.mozilla.org/en-US/docs/Web/API/Console/info), [```console.warn()```](https://developer.mozilla.org/en-US/docs/Web/API/Console/warn), [```console.error()```](https://developer.mozilla.org/en-US/docs/Web/API/Console/error)
