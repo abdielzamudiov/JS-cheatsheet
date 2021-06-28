@@ -8,8 +8,11 @@
 	```html
 		<html>
 			<head>
-				<script defer src="./index.js"></script>
+			
 			</head>
+			<body>
+				<script defer src="./index.js"></script>
+			</body>
 		</html>
 	```
 	3. From the Browser console: ```ctrl+shift+J```
@@ -18,7 +21,7 @@
 	```js
 		//Variable asignment
 		var x,y,z;
-		x = 7; y = y;
+		x = 7; y = 8;
 		z = x + y;
 	```
 	2. Literals:
@@ -152,16 +155,35 @@
 				statement
 			const arr = [3, 5, 7];
 			// Example
-			for (let i in arr){
+			for (let i of arr){
 				console.log(i); //logs 3, 5, 7
 			}
 		```
+	2. Switch case:   
+		The **`switch`** statement evaluates an [expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators), matching the expression's value to a `case` clause, and executes [statements](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements) associated with that `case`, as well as statements in `case`s that follow the matching `case`.   
+		Example:
+		```js
+			const expr = 'Papayas';
+			switch (expr) {
+  				case 'Oranges':
+    				console.log('Oranges are $0.59 a pound.');
+    				break;
+  				case 'Mangoes':
+  				case 'Papayas':
+    				console.log('Mangoes and papayas are $2.79 a pound.');
+    				// expected output: "Mangoes and papayas are $2.79 a pound."
+    				break;
+  				default:
+    				console.log(`Sorry, we are out of ${expr}.`);
+			}
+		```
+		A `default` clause; if provided, this clause is executed if the value of `expression` doesn't match any of the `case` clauses.
 - ### Alert, console
 	1. Alert: The alert() method displays an alert box with a specified message and an OK button.
 
 		An alert box is often used if you want to make sure information comes through to the user.
 	```js
-		alert(message) // only parameter is message, it is of string type
+		alert(message); // only parameter is message, it is of string type
 	```
 		
 	2. Console: is an object that provides access to the browser's debugging console, it has a lot of [methods](https://developer.mozilla.org/en-US/docs/Web/API/console#methods). Most used methods are [```console.log()```](https://developer.mozilla.org/en-US/docs/Web/API/Console/log), [```console.info()```](https://developer.mozilla.org/en-US/docs/Web/API/Console/info), [```console.warn()```](https://developer.mozilla.org/en-US/docs/Web/API/Console/warn), [```console.error()```](https://developer.mozilla.org/en-US/docs/Web/API/Console/error)
@@ -220,7 +242,7 @@
 		value1 === value2 //this evaluate to false 
 	```
 	- ```Object```: key-value pairs of collection of data.
-		```js
+	```js
 		let student = {
 			firstName: "Juan",
 			lastName: null,
@@ -248,14 +270,14 @@
 		function hello(){
 			console.log("hello")
 		}
-		hello() // calling the function hello
+		hello(); // calling the function hello
 	```
 	- Functions Parameters: a function can also be declared with parameters. A parameter is a value that is passed when declaring a function.
 	```js
 		function hello(parameter){
 			console.log(parameter) 
 		}
-		hello("hello world") // calling the function hello
+		hello("hello world"); // calling the function hello
 	```
 - ### Returning value from a function
 We can return values from a function when we use the ```return``` statement, this statement denotates that the function has ended. Any code after ```return``` is not executed.
@@ -263,7 +285,7 @@ We can return values from a function when we use the ```return``` statement, thi
 	function add(a, b) {
 		return a + b;
 	}
-	console.log(add(3,6)) // this will log 9
+	console.log(add(3,6)); // this will log 9
 ```
 - ### Types convertions
 	There are two types of type conversion in JS: 
@@ -356,20 +378,20 @@ We can return values from a function when we use the ```return``` statement, thi
 - ### Array: basics
 	The JavaScript Array class is a global object that is used in the construction of arrays; which are high-level, list-like objects.
 	```js
-	// Create an array
+		// Create an array
 		const fruits = ["Apple", "Banana"]
-		console.log(fruits.length)	// note that length is a property, not a method
+		console.log(fruits.length);	// note that length is a property, not a method
 	```
 	- Iterating: you can do it with a simple ```for ``` statement, or with a ```for...of```, or with the protoptype method ```forEach()```:
 	```js
 		for (let i = 0; i < 10; i++)
-			console.log(arr[i])
+			console.log(arr[i]);
 
 		for (let item of arr)
-			consol.log(item)
+			consol.log(item);
 
 		arr.forEach((item,index) => {
-			console.log(item, index)
+			console.log(item, index);
 		});
 	```
 	- Add item at the end of the array with the ```push()``` method
@@ -378,7 +400,7 @@ We can return values from a function when we use the ```return``` statement, thi
 	```
 	- Remove the last item from the array with the ```pop()``` method
 	```js
-		let last = fruits.pop() //returns the element that just removed
+		let last = fruits.pop(); //returns the element that just removed
 	```
 	-  See more [Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#instance_methods)
 - ### setTimeout, setInterval
