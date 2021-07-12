@@ -1,5 +1,5 @@
 ### Module 11
-- AJAX, XMLHTTPRequest
+- AJAX, XMLHTTPRequest   
 	What is AJAX?
 	AJAX is a technique for accessing web servers from a web page. Stands for Asynchronous JavaScript And XML and is not a programming language.
 	With AJAX you can:
@@ -12,8 +12,8 @@
 	- JavaScript and HTML DOM (to display or use the data).
 
 	AJAX applications might use XML to transport data, but it is equally common to transport data as plain text or JSON text.
-	#### How AJAX works
-	[[pic_ajax.gif]]
+	#### How AJAX works   
+	[[pic_ajax.gif]]   
 	1. An event occurs in a web page (the page is loaded, a button is clicked).
 	2. An XMLHttpRequest object is created by JavaScript.
 	3. The XMLHttpRequest object sends a request to a web server.
@@ -46,7 +46,7 @@
 		var body = XMLHttpRequest.response;
 	```
 	
-- fetch
+- fetch   
 	JavaScript can send network requests to the server and load new information whenever it’s needed.
 
 	For example, we can use a network request to:
@@ -99,7 +99,7 @@
 		let parsed = await response.json(); // fails (already consumed)
 	```
 	
-- Request Headers
+- Request Headers   
 	To set a request header in `fetch`, we can use the `headers` option. It has an object with outgoing headers, like this:
 	```js
 		let response = fetch(protectedUrl, {
@@ -132,7 +132,7 @@
 	
 	These headers ensure proper and safe HTTP, so they are controlled exclusively by the browser.
 	
-- JSONP
+- JSONP   
 	JSONP is a method for sending JSON data without worrying about cross-domain issues. Does not use the `XMLHttpRequest` object. JSONP uses the `<script>` tag instead.
 	JSONP stands for JSON with Padding.
 	Requesting a file from another domain can cause problems, due to cross-domain policy.
@@ -154,7 +154,7 @@
 		// or document.head.appendChild(script) in modern browsers
 	```
 	
-- REST
+- REST   
 	REST, or REpresentational State Transfer, is an architectural style for providing standards between computer systems on the web, making it easier for systems to communicate with each other.
 	Separating the user interface concerns from the data storage concerns, we improve the flexibility of the interface across platforms and improve scalability by simplifying the server components. Additionally, the separation allows each component the ability to evolve independently.
 	
@@ -178,7 +178,7 @@
 	
 	You can find more info on the [[Lectures 11]] doc.
 
-- URL, Encoding strings
+- URL, Encoding strings   
 	With [Hypertext](https://developer.mozilla.org/en-US/docs/Glossary/Hypertext) and [HTTP](https://developer.mozilla.org/en-US/docs/Glossary/HTTP), **URL** is one of the key concepts of the Web. It is the mechanism used by [browsers](https://developer.mozilla.org/en-US/docs/Glossary/Browser) to retrieve any published resource on the web.
 	
 	**URL** stands for _Uniform Resource Locator_. A URL is nothing more than the address of a given unique resource on the Web. In theory, each valid URL points to a unique resource. Such resources can be an HTML page, a CSS document, an image, etc. In practice, there are some exceptions, the most common being a URL pointing to a resource that no longer exists or that has moved.   
@@ -190,21 +190,36 @@
 	A URL is composed of different parts, some mandatory and others optional. The most important parts are highlighted on the URL below (details are provided in the following sections):
 	[[mdn-url-all.png]]
 	
-- Cross-Origin Requests
+	In JavaScript are functions that can be used to URL encode a string.
+	You can use the encodeURIComponent() function.
+	
+	#### encodeURIComponent()   
+	The encodeURIComponent() function encodes a URI by replacing each instance of certain characters by one, two, three, or four escape sequences representing the UTF-8 encoding of the character (will only be four escape sequences for characters composed of two "surrogate" characters).   
+	Example:
+	```js
+		// encodes characters such as ?,=,/,&,:
+		console.log(`?x=${encodeURIComponent('test?')}`);
+		// expected output: "?x=test%3F"
+
+		console.log(`?x=${encodeURIComponent('шеллы')}`);
+		// expected output: "?x=%D1%88%D0%B5%D0%BB%D0%BB%D1%8B"
+	```
+	
+- Cross-Origin Requests   
 	**Cross-site HTTP requests** are HTTP requests for resources from a **different domain** than the domain of the resource making the request. For instance, an HTML page from Domain A (`http://domaina.example/`) makes a request for an image on Domain B (`http://domainb.foo/image.jpg`) via the `img` element. Web pages today very commonly load cross-site resources, including CSS stylesheets, images, scripts, and other resources. 
 	The CORS mechanism supports secure cross-origin requests and data transfers between browsers and servers. Modern browsers use CORS in APIs such as `XMLHttpRequest` or [Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) to mitigate the risks of cross-origin HTTP requests. CORS allows web developers to control how their site reacts to cross-site requests.   
 	Example:
  	[[cross-origin-resource-sharing-ablauf.png]]
 	
-- Long polling
+- Long polling   
 	[Long polling](https://en.wikipedia.org/wiki/Push_technology#Long_polling) is essentially a more efficient form of the original polling technique. Making repeated requests to a server wastes resources, as each new incoming connection must be established, the HTTP headers must be parsed, a query for new data must be performed, and a response (usually with no new data to offer) must be generated and delivered. The connection must then be closed, and any resources cleaned up. Rather than having to repeat this process multiple times for every client until new data for a given client becomes available, long polling is a technique where the server elects to hold a client’s connection open for as long as possible, delivering a response only after data becomes available or a timeout threshold has been reached.
 	
-	Implementation is mostly a server-side concern. On the client side, only a single request to the server needs to be managed. When the response is received, the client can initiate a new request, repeating this process as many times as is necessary. The only difference to basic polling, as far as the client is concerned, is that a client performing basic polling may deliberately leave a small time window between each request so as to reduce its load on the server, and it may respond to timeouts with different assumptions than it would for a server that does not support long polling. With long polling, the client may be configured to allow for a longer timeout period (via a `Keep-Alive` header) when listening for a response – something that would usually be avoided seeing as the timeout period is generally used to indicate problems communicating with the server.
-	[[long-polling.png]]
+	Implementation is mostly a server-side concern. On the client side, only a single request to the server needs to be managed. When the response is received, the client can initiate a new request, repeating this process as many times as is necessary. The only difference to basic polling, as far as the client is concerned, is that a client performing basic polling may deliberately leave a small time window between each request so as to reduce its load on the server, and it may respond to timeouts with different assumptions than it would for a server that does not support long polling. With long polling, the client may be configured to allow for a longer timeout period (via a `Keep-Alive` header) when listening for a response – something that would usually be avoided seeing as the timeout period is generally used to indicate problems communicating with the server.   
+	[[long-polling.png]]   
 	
 	Also, the server needs to manage the unresolved state of multiple connections, and it may need to implement strategies for preserving session state when multiple servers and load balancers are in use (commonly referred to as session “stickiness”). It also needs to gracefully handle connection timeout issues, which are much more likely to occur than with designed-for-purpose protocols such as [WebSockets](https://www.ably.io/topic/websockets), a standard which did not arrive until years after long polling was established as a conventional technique for pseudo-realtime communication.
 	
-- WebSockets API overview
+- WebSockets API overview   
 	The `WebSocket` protocol, described in the specification [RFC 6455](http://tools.ietf.org/html/rfc6455) provides a way to exchange data between browser and server via a persistent connection. The data can be passed in both directions as “packets”, without breaking the connection and additional HTTP-requests.
 	[[websocket-handshake.svg]]
 	
@@ -265,7 +280,7 @@
 	- [`MessageEvent`](https://developer.mozilla.org/en-US/docs/Web/API/MessageEvent)
 		The event sent by the WebSocket object when a message is received from the server.
 	
-- HTTP 2.0 overview
+- HTTP 2.0 overview   
 	Since its inception in the early nineties, HTTP has seen only a few major revisions. The most recent version, HTTP1.1 has served the cyber world for over 15 years. Web pages in today's era of dynamic information updates, resource-intensive media content formats, and excessive inclination toward web performance have placed older protocol technologies in the legacy category. These trends demand significant HTTP/2 changes to improve the internet experience.
 	[[http-timeline.png]]
 	
@@ -273,7 +288,7 @@
 	
 	The main goal of research and development of a new version of HTTP is centered around three qualities rarely associated with a single network protocol without requiring additional networking technologies of high performance, simplicity, and robustness. These goals are achieved by introducing features that reduce latency in processing browser requests with techniques such as multiplexing, compression, prioritization, and server push request.
 	
-- Window post messages
+- Window post messages   
 	The **`window.postMessage()`** method safely enables cross-origin communication between [`Window`](https://developer.mozilla.org/en-US/docs/Web/API/Window) objects; _e.g.,_ between a page and a pop-up that it spawned, or between a page and an iframe embedded within it.
 
 	Normally, scripts on different pages are allowed to access each other if and only if the pages they originate from share the same protocol, port number, and host (also known as the "[same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)"). `window.postMessage()` provides a controlled mechanism to securely circumvent this restriction (if used properly).
@@ -301,7 +316,7 @@
 	`_**transfer**_` Optional
 	Is a sequence of [`Transferable`](https://developer.mozilla.org/en-US/docs/Web/API/Transferable) objects that are transferred with the message. The ownership of these objects is given to the destination side and they are no longer usable on the sending side.
 
-- Cookie
+- Cookie   
 	A cookie is **a data file that a web page sends to your computer** when you visit it. 
 	Cookies are usually used mainly for two main purposes: **remembering access and knowing browsing habits.**
 	The most important thing about cookies are their functions to remember accesses,  were invented to solve the problem "how to remember information about the user".
@@ -332,5 +347,5 @@
 		allCookies = document.cookie;
 	```
 	
-- Network basics
+- Network basics   
 	For better purpose I let links to good links about the fundamentals of networking because this topic is too general and we can understand better in a separate document with images and graphs too.
