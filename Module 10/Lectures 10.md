@@ -4,4 +4,10 @@
 #### Event Phases
 1. [Phases of JavaScript Event - GeeksforGeeks](https://www.geeksforgeeks.org/phases-of-javascript-event/) 
 #### Bubbling, Capturing, Targeting
-1. 
+1. [Bubbling and capturing (javascript.info)](https://javascript.info/bubbling-and-capturing)
+#### Event Delegation
+1. [Event delegation (javascript.info)](https://javascript.info/event-delegation)
+#### Custom Events
+1. [Dispatching custom events (javascript.info)](https://javascript.info/dispatch-events)
+#### Event prevention
+1. [Browser default actions (javascript.info)](https://javascript.info/default-browser-action)
