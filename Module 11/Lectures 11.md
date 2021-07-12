@@ -13,6 +13,7 @@
 1. [What is REST? | Codecademy](https://www.codecademy.com/articles/what-is-rest)
 ### URL, Encoding strings
 1. [What is a URL? - Learn web development | MDN (mozilla.org)](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_URL)
+2. [HTML URL Encoding Reference (w3schools.com)](https://www.w3schools.com/tags/ref_urlencode.ASP)
 ### Cross-Origin Requests
 1. [HTTP | MDN (mozilla.org)](https://developer.mozilla.org/en-US/docs/Web/HTTP)
 2. [Cross-Origin Resource Sharing (CORS) - HTTP | MDN (mozilla.org)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
