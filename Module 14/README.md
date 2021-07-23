@@ -38,20 +38,20 @@ Erich Gamma, John Vlissides, Ralph Johnson, and Richard Helm. In 1994, they publ
 AntiPatterns highlight the most common problems that face the software industry and provide the tools to enable you to recognize these problems and to determine their underlying causes.
 There are three diferent categories:
 -	[Software Development AntiPatterns (sourcemaking.com)](https://sourcemaking.com/antipatterns/software-development-antipatterns)
-1. [The Blob](https://sourcemaking.com/antipatterns/the-blob)
-2. [Continuous Obsolescence](https://sourcemaking.com/antipatterns/continuous-obsolescence)
-3. [Lava Flow](https://sourcemaking.com/antipatterns/lava-flow)
-4. [Ambiguous Viewpoint](https://sourcemaking.com/antipatterns/ambiguous-viewpoint)
-5. [Functional Decomposition](https://sourcemaking.com/antipatterns/functional-decomposition)
-6. [Poltergeists](https://sourcemaking.com/antipatterns/poltergeists)
-7. [Boat Anchor](https://sourcemaking.com/antipatterns/boat-anchor)
-8. [Golden Hammer](https://sourcemaking.com/antipatterns/golden-hammer)
-9. [Dead End](https://sourcemaking.com/antipatterns/dead-end)
-10. [Spaghetti Code](https://sourcemaking.com/antipatterns/spaghetti-code)
-11. [Input Kludge](https://sourcemaking.com/antipatterns/input-kludge)
-12. [Walking through a Minefield](https://sourcemaking.com/antipatterns/walking-through-minefield)
-13. [Cut-and-Paste Programming](https://sourcemaking.com/antipatterns/cut-and-paste-programming)
-14. [Mushroom Management](https://sourcemaking.com/antipatterns/mushroom-management)
+	1. [The Blob](https://sourcemaking.com/antipatterns/the-blob)
+	2. [Continuous Obsolescence](https://sourcemaking.com/antipatterns/continuous-obsolescence)
+	3. [Lava Flow](https://sourcemaking.com/antipatterns/lava-flow)
+	4. [Ambiguous Viewpoint](https://sourcemaking.com/antipatterns/ambiguous-viewpoint)
+	5. [Functional Decomposition](https://sourcemaking.com/antipatterns/functional-decomposition)
+	6. [Poltergeists](https://sourcemaking.com/antipatterns/poltergeists)
+	7. [Boat Anchor](https://sourcemaking.com/antipatterns/boat-anchor)
+	8. [Golden Hammer](https://sourcemaking.com/antipatterns/golden-hammer)
+	9. [Dead End](https://sourcemaking.com/antipatterns/dead-end)
+	10. [Spaghetti Code](https://sourcemaking.com/antipatterns/spaghetti-code)
+	11. [Input Kludge](https://sourcemaking.com/antipatterns/input-kludge)
+	12. [Walking through a Minefield](https://sourcemaking.com/antipatterns/walking-through-minefield)
+	13. [Cut-and-Paste Programming](https://sourcemaking.com/antipatterns/cut-and-paste-programming)
+	14. [Mushroom Management](https://sourcemaking.com/antipatterns/mushroom-management)
 
 -	[Software Architecture AntiPatterns (sourcemaking.com)](https://sourcemaking.com/antipatterns/software-architecture-antipatterns)
 -	[Project Management AntiPatterns (sourcemaking.com)](https://sourcemaking.com/antipatterns/software-project-management-antipatterns)
@@ -96,10 +96,10 @@ Exporting:
   		ctx.fillRect(x, y, length, length);
 
   		return {
-    		length: length,
-    		x: x,
-    		y: y,
-    		color: color
+    			length: length,
+    			x: x,
+    			y: y,
+    			color: color
   		};
 	}
 ```
@@ -137,8 +137,8 @@ This system relies on importing and exporting modules thanks to some well-known 
 ```js
 	// utils.js
   	// we create a function 
-  	function add(r){
-    	return r + r;
+  	function add(r) {
+    		return r + r;
   	}
   	// export (expose) add to other modules
   	exports.add = add;
@@ -157,16 +157,16 @@ They've decided to create AMD to support **asynchronous** module loading. This i
 ```js
 	// add.js
   	define(function() {
-    	return add = function(r) {
-      	return r + r;
-    	}
+    		return add = function(r) {
+      			return r + r;
+    		}
   	});
 
 
   	// index.js
   	define(function(require) {
-    	require('./add');
-    	add(4); // = 8
+    		require('./add');
+    		add(4); // = 8
   	}
 ```
 This example works only if you have requirejs on your website. You can find some other [AMD examples](https://clubmate.fi/requirejs-from-scratch-and-the-amd-module-patterns/).
@@ -181,7 +181,7 @@ As those 3 formats are not that easy to read, hard to analyze for static code an
 ```js
  	// add.js
   	export function add(r) {
-    	return r + r;
+    		return r + r;
   	}
 
 
